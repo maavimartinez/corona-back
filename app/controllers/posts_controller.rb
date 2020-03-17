@@ -35,14 +35,9 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    puts "entre create post"
     @previous_post = Post.where(user_id: @current_user.id).first
-    puts "pase previuos"
-    puts @previous_post.as_json
     if @previous_post != nil
-      puts "error"
       render :json => {:error => "No peudes realizar otro pedido"}.to_json, :status => 422
-      #format.json { render json: "No puedes realizar otro pedido", status: :unprocessable_entity }
     else
       @post = Post.create!(description: params[:description],title: params[:title], town_id: params[:town_id], user_id: @current_user.id)
 

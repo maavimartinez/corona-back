@@ -1,0 +1,69 @@
+I, [2020-03-17T10:49:24.311193 #76304]  INFO -- : [27fed659-f67d-4b0d-a0db-639a0b7d8468] Started GET "/posts" for 127.0.0.1 at 2020-03-17 10:49:24 -0300
+I, [2020-03-17T10:49:24.312913 #76304]  INFO -- : [27fed659-f67d-4b0d-a0db-639a0b7d8468] Processing by PostsController#index as */*
+D, [2020-03-17T10:49:28.923309 #76304] DEBUG -- : [27fed659-f67d-4b0d-a0db-639a0b7d8468]   [1m[36mUser Load (210.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+D, [2020-03-17T10:49:29.123390 #76304] DEBUG -- : [27fed659-f67d-4b0d-a0db-639a0b7d8468]   [1m[36mPost Load (191.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+D, [2020-03-17T10:49:30.351977 #76304] DEBUG -- : [27fed659-f67d-4b0d-a0db-639a0b7d8468]   [1m[36mTown Load (205.9ms)[0m  [1m[34mSELECT "towns".* FROM "towns" WHERE "towns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2020-03-17T10:49:30.556891 #76304] DEBUG -- : [27fed659-f67d-4b0d-a0db-639a0b7d8468]   [1m[36mUser Load (198.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2020-03-17T10:49:31.375136 #76304] DEBUG -- : [27fed659-f67d-4b0d-a0db-639a0b7d8468]   [1m[36mCity Load (204.5ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2020-03-17T10:49:31.380629 #76304] DEBUG -- : [27fed659-f67d-4b0d-a0db-639a0b7d8468]   [1m[36mCACHE Town Load (0.0ms)[0m  [1m[34mSELECT "towns".* FROM "towns" WHERE "towns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2020-03-17T10:49:31.380953 #76304] DEBUG -- : [27fed659-f67d-4b0d-a0db-639a0b7d8468]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+D, [2020-03-17T10:49:31.381266 #76304] DEBUG -- : [27fed659-f67d-4b0d-a0db-639a0b7d8468]   [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2020-03-17T10:49:31.384837 #76304]  INFO -- : [27fed659-f67d-4b0d-a0db-639a0b7d8468]   Rendering posts/index.json.jbuilder
+I, [2020-03-17T10:49:31.385669 #76304]  INFO -- : [27fed659-f67d-4b0d-a0db-639a0b7d8468]   Rendered posts/index.json.jbuilder (Duration: 0.7ms | Allocations: 625)
+I, [2020-03-17T10:49:31.385903 #76304]  INFO -- : [27fed659-f67d-4b0d-a0db-639a0b7d8468] Completed 200 OK in 7073ms (Views: 3.3ms | ActiveRecord: 4470.7ms | Allocations: 22522)
+I, [2020-03-17T10:49:47.871693 #76335]  INFO -- : [490b7e5b-5965-419f-b9c6-ff8a7d0222c9] Started GET "/posts" for 127.0.0.1 at 2020-03-17 10:49:47 -0300
+I, [2020-03-17T10:49:47.873003 #76335]  INFO -- : [490b7e5b-5965-419f-b9c6-ff8a7d0222c9] Processing by PostsController#index as */*
+D, [2020-03-17T10:49:52.575459 #76335] DEBUG -- : [490b7e5b-5965-419f-b9c6-ff8a7d0222c9]   [1m[36mUser Load (206.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+D, [2020-03-17T10:49:52.778152 #76335] DEBUG -- : [490b7e5b-5965-419f-b9c6-ff8a7d0222c9]   [1m[36mPost Load (194.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+D, [2020-03-17T10:49:54.008690 #76335] DEBUG -- : [490b7e5b-5965-419f-b9c6-ff8a7d0222c9]   [1m[36mTown Load (188.0ms)[0m  [1m[34mSELECT "towns".* FROM "towns" WHERE "towns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2020-03-17T10:49:54.211977 #76335] DEBUG -- : [490b7e5b-5965-419f-b9c6-ff8a7d0222c9]   [1m[36mUser Load (197.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2020-03-17T10:49:56.260636 #76335] DEBUG -- : [490b7e5b-5965-419f-b9c6-ff8a7d0222c9]   [1m[36mCity Load (205.5ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2020-03-17T10:49:56.266181 #76335] DEBUG -- : [490b7e5b-5965-419f-b9c6-ff8a7d0222c9]   [1m[36mCACHE Town Load (0.0ms)[0m  [1m[34mSELECT "towns".* FROM "towns" WHERE "towns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2020-03-17T10:49:56.266540 #76335] DEBUG -- : [490b7e5b-5965-419f-b9c6-ff8a7d0222c9]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+D, [2020-03-17T10:49:56.266861 #76335] DEBUG -- : [490b7e5b-5965-419f-b9c6-ff8a7d0222c9]   [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2020-03-17T10:49:56.270564 #76335]  INFO -- : [490b7e5b-5965-419f-b9c6-ff8a7d0222c9]   Rendering posts/index.json.jbuilder
+I, [2020-03-17T10:49:56.271373 #76335]  INFO -- : [490b7e5b-5965-419f-b9c6-ff8a7d0222c9]   Rendered posts/index.json.jbuilder (Duration: 0.7ms | Allocations: 623)
+I, [2020-03-17T10:49:56.271636 #76335]  INFO -- : [490b7e5b-5965-419f-b9c6-ff8a7d0222c9] Completed 200 OK in 8399ms (Views: 3.2ms | ActiveRecord: 4444.3ms | Allocations: 22875)
+I, [2020-03-17T10:50:22.923899 #76350]  INFO -- : [59d41d52-a35d-41ef-8827-5d63f8996e3f] Started GET "/posts" for 127.0.0.1 at 2020-03-17 10:50:22 -0300
+I, [2020-03-17T10:50:22.925716 #76350]  INFO -- : [59d41d52-a35d-41ef-8827-5d63f8996e3f] Processing by PostsController#index as */*
+D, [2020-03-17T10:50:27.571685 #76350] DEBUG -- : [59d41d52-a35d-41ef-8827-5d63f8996e3f]   [1m[36mUser Load (155.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+D, [2020-03-17T10:50:27.807556 #76350] DEBUG -- : [59d41d52-a35d-41ef-8827-5d63f8996e3f]   [1m[36mPost Load (227.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+D, [2020-03-17T10:50:28.926099 #76350] DEBUG -- : [59d41d52-a35d-41ef-8827-5d63f8996e3f]   [1m[36mTown Load (204.5ms)[0m  [1m[34mSELECT "towns".* FROM "towns" WHERE "towns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2020-03-17T10:50:29.094977 #76350] DEBUG -- : [59d41d52-a35d-41ef-8827-5d63f8996e3f]   [1m[36mUser Load (162.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2020-03-17T10:50:30.948276 #76350] DEBUG -- : [59d41d52-a35d-41ef-8827-5d63f8996e3f]   [1m[36mCity Load (1302.4ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2020-03-17T10:50:30.953331 #76350] DEBUG -- : [59d41d52-a35d-41ef-8827-5d63f8996e3f]   [1m[36mCACHE Town Load (0.0ms)[0m  [1m[34mSELECT "towns".* FROM "towns" WHERE "towns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2020-03-17T10:50:30.953895 #76350] DEBUG -- : [59d41d52-a35d-41ef-8827-5d63f8996e3f]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+D, [2020-03-17T10:50:30.954230 #76350] DEBUG -- : [59d41d52-a35d-41ef-8827-5d63f8996e3f]   [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2020-03-17T10:50:30.957590 #76350]  INFO -- : [59d41d52-a35d-41ef-8827-5d63f8996e3f] Completed 500 Internal Server Error in 8032ms (ActiveRecord: 5209.5ms | Allocations: 21206)
+F, [2020-03-17T10:50:30.958072 #76350] FATAL -- : [59d41d52-a35d-41ef-8827-5d63f8996e3f]   
+[59d41d52-a35d-41ef-8827-5d63f8996e3f] NoMethodError (undefined method `user_first_name' for #<Hash:0x00007fc85b5a2898>):
+[59d41d52-a35d-41ef-8827-5d63f8996e3f]   
+[59d41d52-a35d-41ef-8827-5d63f8996e3f] app/controllers/posts_controller.rb:17:in `block in index'
+[59d41d52-a35d-41ef-8827-5d63f8996e3f] app/controllers/posts_controller.rb:16:in `each'
+[59d41d52-a35d-41ef-8827-5d63f8996e3f] app/controllers/posts_controller.rb:16:in `index'
+I, [2020-03-17T10:51:00.566165 #76386]  INFO -- : [1b2015a5-c9ea-4e82-b17a-09b670f9f9f3] Started GET "/posts" for 127.0.0.1 at 2020-03-17 10:51:00 -0300
+I, [2020-03-17T10:51:00.568496 #76386]  INFO -- : [1b2015a5-c9ea-4e82-b17a-09b670f9f9f3] Processing by PostsController#index as */*
+D, [2020-03-17T10:51:05.533543 #76386] DEBUG -- : [1b2015a5-c9ea-4e82-b17a-09b670f9f9f3]   [1m[36mUser Load (250.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+D, [2020-03-17T10:51:05.810081 #76386] DEBUG -- : [1b2015a5-c9ea-4e82-b17a-09b670f9f9f3]   [1m[36mPost Load (267.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+D, [2020-03-17T10:51:07.020376 #76386] DEBUG -- : [1b2015a5-c9ea-4e82-b17a-09b670f9f9f3]   [1m[36mTown Load (204.7ms)[0m  [1m[34mSELECT "towns".* FROM "towns" WHERE "towns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2020-03-17T10:51:07.178457 #76386] DEBUG -- : [1b2015a5-c9ea-4e82-b17a-09b670f9f9f3]   [1m[36mUser Load (151.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2020-03-17T10:51:07.905083 #76386] DEBUG -- : [1b2015a5-c9ea-4e82-b17a-09b670f9f9f3]   [1m[36mCity Load (155.8ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2020-03-17T10:51:07.910542 #76386] DEBUG -- : [1b2015a5-c9ea-4e82-b17a-09b670f9f9f3]   [1m[36mCACHE Town Load (0.0ms)[0m  [1m[34mSELECT "towns".* FROM "towns" WHERE "towns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2020-03-17T10:51:07.910883 #76386] DEBUG -- : [1b2015a5-c9ea-4e82-b17a-09b670f9f9f3]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+D, [2020-03-17T10:51:07.911183 #76386] DEBUG -- : [1b2015a5-c9ea-4e82-b17a-09b670f9f9f3]   [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2020-03-17T10:51:07.914709 #76386]  INFO -- : [1b2015a5-c9ea-4e82-b17a-09b670f9f9f3]   Rendering posts/index.json.jbuilder
+I, [2020-03-17T10:51:07.915682 #76386]  INFO -- : [1b2015a5-c9ea-4e82-b17a-09b670f9f9f3]   Rendered posts/index.json.jbuilder (Duration: 0.9ms | Allocations: 625)
+I, [2020-03-17T10:51:07.915961 #76386]  INFO -- : [1b2015a5-c9ea-4e82-b17a-09b670f9f9f3] Completed 200 OK in 7347ms (Views: 3.3ms | ActiveRecord: 5035.0ms | Allocations: 22519)
+I, [2020-03-17T10:53:13.123080 #76430]  INFO -- : [f5e1e7a7-1307-4dbb-934d-4fba3d6c0a24] Started GET "/posts" for 127.0.0.1 at 2020-03-17 10:53:13 -0300
+I, [2020-03-17T10:53:13.126577 #76430]  INFO -- : [f5e1e7a7-1307-4dbb-934d-4fba3d6c0a24] Processing by PostsController#index as */*
+D, [2020-03-17T10:53:17.581312 #76430] DEBUG -- : [f5e1e7a7-1307-4dbb-934d-4fba3d6c0a24]   [1m[36mUser Load (206.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+D, [2020-03-17T10:53:17.806762 #76430] DEBUG -- : [f5e1e7a7-1307-4dbb-934d-4fba3d6c0a24]   [1m[36mPost Load (217.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+D, [2020-03-17T10:53:19.117374 #76430] DEBUG -- : [f5e1e7a7-1307-4dbb-934d-4fba3d6c0a24]   [1m[36mTown Load (203.7ms)[0m  [1m[34mSELECT "towns".* FROM "towns" WHERE "towns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2020-03-17T10:53:19.323762 #76430] DEBUG -- : [f5e1e7a7-1307-4dbb-934d-4fba3d6c0a24]   [1m[36mUser Load (200.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2020-03-17T10:53:20.143478 #76430] DEBUG -- : [f5e1e7a7-1307-4dbb-934d-4fba3d6c0a24]   [1m[36mCity Load (203.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2020-03-17T10:53:20.148974 #76430] DEBUG -- : [f5e1e7a7-1307-4dbb-934d-4fba3d6c0a24]   [1m[36mCACHE Town Load (0.0ms)[0m  [1m[34mSELECT "towns".* FROM "towns" WHERE "towns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+D, [2020-03-17T10:53:20.149316 #76430] DEBUG -- : [f5e1e7a7-1307-4dbb-934d-4fba3d6c0a24]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+D, [2020-03-17T10:53:20.149620 #76430] DEBUG -- : [f5e1e7a7-1307-4dbb-934d-4fba3d6c0a24]   [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+I, [2020-03-17T10:53:20.155127 #76430]  INFO -- : [f5e1e7a7-1307-4dbb-934d-4fba3d6c0a24]   Rendering posts/index.json.jbuilder
+I, [2020-03-17T10:53:20.156579 #76430]  INFO -- : [f5e1e7a7-1307-4dbb-934d-4fba3d6c0a24]   Rendered posts/index.json.jbuilder (Duration: 1.3ms | Allocations: 659)
+I, [2020-03-17T10:53:20.156857 #76430]  INFO -- : [f5e1e7a7-1307-4dbb-934d-4fba3d6c0a24] Completed 200 OK in 7030ms (Views: 4.1ms | ActiveRecord: 4619.3ms | Allocations: 22547)

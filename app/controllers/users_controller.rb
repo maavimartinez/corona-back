@@ -1,5 +1,17 @@
 class UsersController < ApplicationController
+  skip_before_action :authorize_request, only: [:create, :login]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+
+  def login
+    puts "login entre"
+    @user = User.where(email: params[:email].to_s.downcase).first()
+    if @user && @user.authenticate(params[:password].to_s) 
+        auth_token = JsonWebToken.encode({user_id: @user.id})
+        render json: {auth_token: auth_token, id: @user.id, status: 200}, status: 200
+    else
+      render json: {error: 'Email/contraseña incorrectos', status: 422}, status: 422
+    end
+  end
 
   # GET /users
   # GET /users.json
@@ -24,14 +36,11 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
-
+    @user = User.create!(first_name: params[:first_name], last_name: params[:last_name], email: params[:email].to_s.downcase, phone: params[:phone], password: params[:password])
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        format.json { render :show, status: :created }
       else
-        format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -69,6 +78,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:firstName, :lastName, :email, :password, :phone)
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :phone)
     end
 end

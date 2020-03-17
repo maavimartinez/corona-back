@@ -28,10 +28,8 @@ class CitiesController < ApplicationController
 
     respond_to do |format|
       if @city.save
-        format.html { redirect_to @city, notice: 'City was successfully created.' }
         format.json { render :show, status: :created, location: @city }
       else
-        format.html { render :new }
         format.json { render json: @city.errors, status: :unprocessable_entity }
       end
     end

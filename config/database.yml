@@ -23,7 +23,11 @@ default: &default
 
 development:
   <<: *default
-  database: coronaBack_development
+  database: coronadb
+  port: 5432
+  host: coronadb.cw5wflqepngo.us-east-1.rds.amazonaws.com
+  username: smartUpSoftware
+  password: SmartUp1
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -80,6 +84,8 @@ test:
 #
 production:
   <<: *default
-  database: coronaBack_production
-  username: coronaBack
-  password: <%= ENV['CORONABACK_DATABASE_PASSWORD'] %>
+  database: coronadb
+  port: 5432
+  host: coronadb.cw5wflqepngo.us-east-1.rds.amazonaws.com
+  username: smartUpSoftware
+  password: SmartUp1

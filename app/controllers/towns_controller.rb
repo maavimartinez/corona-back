@@ -28,10 +28,8 @@ class TownsController < ApplicationController
 
     respond_to do |format|
       if @town.save
-        format.html { redirect_to @town, notice: 'Town was successfully created.' }
         format.json { render :show, status: :created, location: @town }
       else
-        format.html { render :new }
         format.json { render json: @town.errors, status: :unprocessable_entity }
       end
     end
@@ -69,6 +67,6 @@ class TownsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def town_params
-      params.require(:town).permit(:name)
+      params.require(:town).permit(:name, :city_id)
     end
 end

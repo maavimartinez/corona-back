@@ -1,9 +1,9 @@
 class User < ApplicationRecord
     has_many :products
     has_many :posts
-    
+    has_many :reviews
+
     has_secure_password
-    acts_as_paranoid
 
     validates :first_name, presence: true
     validates_format_of :first_name, :with => /\A[a-zA-ZáéíóúÁÉÍÓÚ\s]*\Z/

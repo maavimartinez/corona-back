@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_15_225224) do
+ActiveRecord::Schema.define(version: 2020_03_16_235442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 2020_03_15_225224) do
     t.datetime "date_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "offers", force: :cascade do |t|
+    t.bigint "post_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_offers_on_post_id"
+    t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -49,6 +58,17 @@ ActiveRecord::Schema.define(version: 2020_03_15_225224) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.integer "rate"
+    t.bigint "reviewer_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "shops", force: :cascade do |t|
     t.string "name"
     t.bigint "town_id"
@@ -66,17 +86,20 @@ ActiveRecord::Schema.define(version: 2020_03_15_225224) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "firstName"
-    t.string "lastName"
+    t.string "first_name"
+    t.string "last_name"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
     t.string "phone"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "offers", "posts"
+  add_foreign_key "offers", "users"
   add_foreign_key "posts", "towns"
   add_foreign_key "posts", "users"
+  add_foreign_key "reviews", "users"
   add_foreign_key "shops", "towns"
   add_foreign_key "towns", "cities"
 end

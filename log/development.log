@@ -73,3 +73,694 @@ Migrating to CreateProducts (20200315225224)
   [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4035923497419838395)[0m
   [1m[35m (4.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (6.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4035923497419838395)[0m
+  [1m[35m (8.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateReviews (20200316123533)
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4035923497419838395)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4035923497419838395)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateReviews (20200316123533)
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(4035923497419838395)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4035923497419838395)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateReviews (20200316123533)
+  [1m[35m (13.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (149.6ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" bigserial primary key, "title" character varying, "description" character varying, "rate" integer, "reviewer_id" bigint, "user_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_74a66bd6c5"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_reviews_on_user_id" ON "reviews"  ("user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (2.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200316123533"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(4035923497419838395)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4035923497419838395)[0m
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOffers (20200316235442)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (65.0ms)[0m  [1m[35mCREATE TABLE "offers" ("id" bigserial primary key, "post_id" bigint, "user_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_4a5afffff7"
+FOREIGN KEY ("post_id")
+  REFERENCES "posts" ("id")
+, CONSTRAINT "fk_rails_e6095d6211"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_offers_on_post_id" ON "offers"  ("post_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_offers_on_user_id" ON "offers"  ("user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200316235442"]]
+  [1m[35m (7.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4035923497419838395)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/users" for 127.0.0.1 at 2020-03-16 21:13:41 -0300
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/mariavictoriamartinez/Documents/SmartUp/coronaBack/app/controllers/users_controller.rb:24: `@' without identifiers is not allowed as an instance variable name
+/Users/mariavictoriamartinez/Documents/SmartUp/coronaBack/app/controllers/users_controller.rb:24: syntax error, unexpected end-of-input
+    @
+    ^):
+  
+app/controllers/users_controller.rb:24: `@' without identifiers is not allowed as an instance variable name
+app/controllers/users_controller.rb:24: syntax error, unexpected end-of-input
+app/controllers/users_controller.rb:24: `@' without identifiers is not allowed as an instance variable name
+app/controllers/users_controller.rb:24: syntax error, unexpected end-of-input
+app/controllers/users_controller.rb:24: `@' without identifiers is not allowed as an instance variable name
+app/controllers/users_controller.rb:24: syntax error, unexpected end-of-input
+Started POST "/users" for 127.0.0.1 at 2020-03-16 21:14:29 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ArgumentError (Unknown validator: 'EmailValidator'):
+  
+app/models/user.rb:14:in `<class:User>'
+app/models/user.rb:1:in `<main>'
+Started POST "/users" for 127.0.0.1 at 2020-03-16 21:15:46 -0300
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ArgumentError (Unknown validator: 'EmailValidator'):
+  
+app/models/user.rb:14:in `<class:User>'
+app/models/user.rb:1:in `<main>'
+Started POST "/users" for 127.0.0.1 at 2020-03-16 21:17:08 -0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"maavimartinez@gmail.com", "firstName"=>"Maria Victoria", "lastName"=>"Martinez", "password"=>"[FILTERED]", "phone"=>"099751737", "user"=>{"firstName"=>"Maria Victoria", "lastName"=>"Martinez", "email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]", "phone"=>"099751737"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 3.6ms | Allocations: 535)
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (6.0.2.1) lib/action_controller/metal/request_forgery_protection.rb:217:in `handle_unverified_request'
+actionpack (6.0.2.1) lib/action_controller/metal/request_forgery_protection.rb:249:in `handle_unverified_request'
+actionpack (6.0.2.1) lib/action_controller/metal/request_forgery_protection.rb:244:in `verify_authenticity_token'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:429:in `block in make_lambda'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:201:in `block (2 levels) in halting'
+actionpack (6.0.2.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:202:in `block in halting'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:514:in `block in invoke_before'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:514:in `each'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:514:in `invoke_before'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:134:in `run_callbacks'
+actionpack (6.0.2.1) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.2.1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.2.1) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.2.1) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.2.1) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.2.1) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.2.1) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.2.1) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.2.1) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.2.1) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.2.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.2) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.2) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.2.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/users" for 127.0.0.1 at 2020-03-16 21:20:55 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"maavimartinez@gmail.com", "firstName"=>"Maria Victoria", "lastName"=>"Martinez", "password"=>"[FILTERED]", "phone"=>"099751737", "user"=>{"firstName"=>"Maria Victoria", "lastName"=>"Martinez", "email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]", "phone"=>"099751737"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 16.7ms | Allocations: 5710)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'deleted_at' for User.):
+  
+app/controllers/users_controller.rb:38:in `create'
+Started POST "/users" for 127.0.0.1 at 2020-03-16 21:23:02 -0300
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"maavimartinez@gmail.com", "firstName"=>"Maria Victoria", "lastName"=>"Martinez", "password"=>"[FILTERED]", "phone"=>"099751737", "user"=>{"firstName"=>"Maria Victoria", "lastName"=>"Martinez", "email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]", "phone"=>"099751737"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 11.3ms | Allocations: 5698)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'deleted_at' for User.):
+  
+app/controllers/users_controller.rb:38:in `create'
+Started POST "/users" for 127.0.0.1 at 2020-03-16 21:23:59 -0300
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"maavimartinez@gmail.com", "firstName"=>"Maria Victoria", "lastName"=>"Martinez", "password"=>"[FILTERED]", "phone"=>"099751737", "user"=>{"firstName"=>"Maria Victoria", "lastName"=>"Martinez", "email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]", "phone"=>"099751737"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 274ms (ActiveRecord: 11.6ms | Allocations: 7645)
+
+
+  
+NoMethodError (undefined method `password_digest=' for #<User:0x00007fc4b54938c0>
+Did you mean?  password=):
+  
+app/controllers/users_controller.rb:38:in `create'
+Started POST "/users" for 127.0.0.1 at 2020-03-16 21:26:14 -0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"maavimartinez@gmail.com", "firstName"=>"Maria Victoria", "lastName"=>"Martinez", "password"=>"[FILTERED]", "phone"=>"099751737", "user"=>{"firstName"=>"Maria Victoria", "lastName"=>"Martinez", "email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]", "phone"=>"099751737"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 268ms (ActiveRecord: 9.3ms | Allocations: 7645)
+
+
+  
+NoMethodError (undefined method `password_digest=' for #<User:0x00007fc0ed76cba8>
+Did you mean?  password=):
+  
+app/controllers/users_controller.rb:38:in `create'
+Started POST "/users" for 127.0.0.1 at 2020-03-16 21:29:08 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"maavimartinez@gmail.com", "firstName"=>"Maria Victoria", "lastName"=>"Martinez", "password"=>"[FILTERED]", "phone"=>"099751737", "user"=>{"firstName"=>"Maria Victoria", "lastName"=>"Martinez", "email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]", "phone"=>"099751737"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 267ms (ActiveRecord: 9.9ms | Allocations: 7646)
+
+
+  
+NoMethodError (undefined method `password_digest=' for #<User:0x00007fe93bfbfa28>
+Did you mean?  password=):
+  
+app/controllers/users_controller.rb:38:in `create'
+Started POST "/users" for 127.0.0.1 at 2020-03-16 21:32:36 -0300
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"maavimartinez@gmail.com", "firstName"=>"Maria Victoria", "lastName"=>"Martinez", "password"=>"[FILTERED]", "phone"=>"099751737", "user"=>{"firstName"=>"Maria Victoria", "lastName"=>"Martinez", "email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]", "phone"=>"099751737"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 285ms (ActiveRecord: 10.3ms | Allocations: 7652)
+
+
+  
+NoMethodError (undefined method `password_digest=' for #<User:0x00007ff7739c0b68>
+Did you mean?  password=):
+  
+app/controllers/users_controller.rb:38:in `create'
+Started POST "/users" for 127.0.0.1 at 2020-03-16 21:33:17 -0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"maavimartinez@gmail.com", "firstName"=>"Maria Victoria", "lastName"=>"Martinez", "password"=>"[FILTERED]", "phone"=>"099751737", "user"=>{"firstName"=>"Maria Victoria", "lastName"=>"Martinez", "email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]", "phone"=>"099751737"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 279ms (ActiveRecord: 7.2ms | Allocations: 7651)
+
+
+  
+NoMethodError (undefined method `password_digest=' for #<User:0x00007fbad1163c60>
+Did you mean?  password=):
+  
+app/controllers/users_controller.rb:38:in `create'
+Started POST "/users" for 127.0.0.1 at 2020-03-16 21:34:07 -0300
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"maavimartinez@gmail.com", "firstName"=>"Maria Victoria", "lastName"=>"Martinez", "password"=>"[FILTERED]", "phone"=>"099751737", "user"=>{"firstName"=>"Maria Victoria", "lastName"=>"Martinez", "email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]", "phone"=>"099751737"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 7.4ms | Allocations: 8562)
+
+
+  
+NoMethodError (undefined method `first_name' for #<User:0x00007feb2b0d4c60>
+Did you mean?  firstName
+               firstName=
+               firstName?):
+  
+app/controllers/users_controller.rb:41:in `block in create'
+app/controllers/users_controller.rb:40:in `create'
+Started POST "/users" for 127.0.0.1 at 2020-03-16 21:35:35 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"maavimartinez@gmail.com", "firstName"=>"Maria Victoria", "lastName"=>"Martinez", "password"=>"[FILTERED]", "phone"=>"099751737", "user"=>{"firstName"=>"Maria Victoria", "lastName"=>"Martinez", "email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]", "phone"=>"099751737"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 276ms (ActiveRecord: 8.4ms | Allocations: 7572)
+
+
+  
+NoMethodError (undefined method `password_digest=' for #<User:0x00007fbba70cd400>
+Did you mean?  password=):
+  
+app/controllers/users_controller.rb:38:in `create'
+Started POST "/users" for 127.0.0.1 at 2020-03-16 21:36:04 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"maavimartinez@gmail.com", "firstName"=>"Maria Victoria", "lastName"=>"Martinez", "password"=>"[FILTERED]", "phone"=>"099751737", "user"=>{"firstName"=>"Maria Victoria", "lastName"=>"Martinez", "email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]", "phone"=>"099751737"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 6.8ms | Allocations: 8456)
+
+
+  
+NoMethodError (undefined method `first_name' for #<User:0x00007ff999171188>
+Did you mean?  firstName
+               firstName=
+               firstName?):
+  
+app/controllers/users_controller.rb:38:in `create'
+Started POST "/users" for 127.0.0.1 at 2020-03-16 21:37:17 -0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"maavimartinez@gmail.com", "firstName"=>"Maria Victoria", "lastName"=>"Martinez", "password"=>"[FILTERED]", "phone"=>"099751737", "user"=>{"firstName"=>"Maria Victoria", "lastName"=>"Martinez", "email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]", "phone"=>"099751737"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:38:in `create'
+  [1m[36mUser Exists? (3.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "maavimartinez@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `create'
+  [1m[36mUser Create (9.3ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "lastName", "email", "password", "phone", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["firstName", "Maria Victoria"], ["lastName", "Martinez"], ["email", "maavimartinez@gmail.com"], ["password", "password"], ["phone", "099751737"], ["created_at", "2020-03-17 00:37:17.518005"], ["updated_at", "2020-03-17 00:37:17.518005"]]
+  ↳ app/controllers/users_controller.rb:38:in `create'
+  [1m[35m (10.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:38:in `create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:40:in `block in create'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "maavimartinez@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40:in `block in create'
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:40:in `block in create'
+Completed 500 Internal Server Error in 200ms (ActiveRecord: 33.8ms | Allocations: 60361)
+
+
+  
+NoMethodError (undefined method `user_url' for #<UsersController:0x00007fa2aa3d28c8>
+Did you mean?  users_url):
+  
+app/controllers/users_controller.rb:41:in `block (2 levels) in create'
+app/controllers/users_controller.rb:39:in `create'
+Started POST "/users" for 127.0.0.1 at 2020-03-16 21:39:05 -0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"maavimartinez@gmail.com", "firstName"=>"Maria Victoria", "lastName"=>"Martinez", "password"=>"[FILTERED]", "phone"=>"099751737", "user"=>{"firstName"=>"Maria Victoria", "lastName"=>"Martinez", "email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]", "phone"=>"099751737"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:38:in `create'
+  [1m[36mUser Exists? (3.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "maavimartinez@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:38:in `create'
+Completed 422 Unprocessable Entity in 53ms (ActiveRecord: 10.9ms | Allocations: 12158)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Email has already been taken):
+  
+app/controllers/users_controller.rb:38:in `create'
+Started GET "/users/login" for 127.0.0.1 at 2020-03-16 21:40:44 -0300
+Processing by UsersController#show as */*
+  Parameters: {"email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]", "id"=>"login", "user"=>{"email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 0.0ms | Allocations: 4442)
+
+
+  
+NameError (uninitialized constant AuthorizeApiRequest::JsonWebToken):
+  
+app/auth/authorize_api_request.rb:31:in `decoded_auth_token'
+app/auth/authorize_api_request.rb:18:in `user'
+app/auth/authorize_api_request.rb:8:in `call'
+app/controllers/application_controller.rb:10:in `authorize_request'
+Started GET "/users/login" for 127.0.0.1 at 2020-03-16 21:42:07 -0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+  Parameters: {"email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]", "id"=>"login", "user"=>{"email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 4.0ms | Allocations: 2201)
+
+
+  
+NameError (uninitialized constant AuthorizeApiRequest::JsonWebToken):
+  
+app/auth/authorize_api_request.rb:31:in `decoded_auth_token'
+app/auth/authorize_api_request.rb:18:in `user'
+app/auth/authorize_api_request.rb:8:in `call'
+app/controllers/application_controller.rb:11:in `authorize_request'
+Started GET "/users/login" for 127.0.0.1 at 2020-03-16 21:43:48 -0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+  Parameters: {"email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]", "id"=>"login", "user"=>{"email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 4.8ms | Allocations: 2201)
+
+
+  
+NameError (uninitialized constant AuthorizeApiRequest::JsonWebToken):
+  
+app/auth/authorize_api_request.rb:31:in `decoded_auth_token'
+app/auth/authorize_api_request.rb:18:in `user'
+app/auth/authorize_api_request.rb:8:in `call'
+app/controllers/application_controller.rb:11:in `authorize_request'
+Started POST "/users/login" for 127.0.0.1 at 2020-03-16 21:44:18 -0300
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "maavimartinez@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 15.2ms | Allocations: 8258)
+
+
+  
+NoMethodError (undefined method `authenticate' for #<User:0x00007fceb8ed05b0>):
+  
+app/controllers/users_controller.rb:8:in `login'
+Started POST "/users/login" for 127.0.0.1 at 2020-03-16 21:45:48 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "maavimartinez@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 11.1ms | Allocations: 8319)
+
+
+  
+NameError (uninitialized constant UsersController::JsonWebToken):
+  
+app/controllers/users_controller.rb:10:in `login'
+Started POST "/users" for 127.0.0.1 at 2020-03-16 21:48:07 -0300
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"maavimartinez2@gmail.com", "firstName"=>"Maria", "lastName"=>"Martinez", "password"=>"[FILTERED]", "phone"=>"099000000", "user"=>{"firstName"=>"Maria", "lastName"=>"Martinez", "email"=>"maavimartinez2@gmail.com", "password"=>"[FILTERED]", "phone"=>"099000000"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 297ms (ActiveRecord: 8.1ms | Allocations: 7602)
+
+
+  
+NoMethodError (undefined method `password_digest=' for #<User:0x00007ff73af95068>
+Did you mean?  password=):
+  
+app/controllers/users_controller.rb:40:in `create'
+Started POST "/users/login" for 127.0.0.1 at 2020-03-16 21:49:10 -0300
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "maavimartinez@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 8.7ms | Allocations: 8319)
+
+
+  
+NameError (uninitialized constant UsersController::JsonWebToken):
+  
+app/controllers/users_controller.rb:10:in `login'
+Started POST "/users/login" for 127.0.0.1 at 2020-03-16 21:51:53 -0300
+  [1m[35m (4.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "maavimartinez@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 15.2ms | Allocations: 8319)
+
+
+  
+NameError (uninitialized constant UsersController::JsonWebToken):
+  
+app/controllers/users_controller.rb:10:in `login'
+Started POST "/users/login" for 127.0.0.1 at 2020-03-16 22:00:59 -0300
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "maavimartinez@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 422 Unprocessable Entity in 50ms (Views: 1.0ms | ActiveRecord: 10.5ms | Allocations: 6344)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2020-03-16 22:01:31 -0300
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/mariavictoriamartinez/Documents/SmartUp/coronaBack/app/controllers/users_controller.rb:8: syntax error, unexpected tCONSTANT, expecting then or ';' or '\n'
+...te(params[:password].to_s) ESTO ES CON LA PASSWORD DIGEST
+...                           ^~~~
+/Users/mariavictoriamartinez/Documents/SmartUp/coronaBack/app/controllers/users_controller.rb:11: else without rescue is useless
+    else
+    ^~~~
+/Users/mariavictoriamartinez/Documents/SmartUp/coronaBack/app/controllers/users_controller.rb:83: syntax error, unexpected end, expecting end-of-input):
+  
+app/controllers/users_controller.rb:8: syntax error, unexpected tCONSTANT, expecting then or ';' or '\n'
+app/controllers/users_controller.rb:11: else without rescue is useless
+app/controllers/users_controller.rb:83: syntax error, unexpected end, expecting end-of-input
+app/controllers/users_controller.rb:8: syntax error, unexpected tCONSTANT, expecting then or ';' or '\n'
+app/controllers/users_controller.rb:11: else without rescue is useless
+app/controllers/users_controller.rb:83: syntax error, unexpected end, expecting end-of-input
+app/controllers/users_controller.rb:8: syntax error, unexpected tCONSTANT, expecting then or ';' or '\n'
+app/controllers/users_controller.rb:11: else without rescue is useless
+app/controllers/users_controller.rb:83: syntax error, unexpected end, expecting end-of-input
+Started POST "/users/login" for 127.0.0.1 at 2020-03-16 22:01:47 -0300
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "maavimartinez@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 10.2ms | Allocations: 9362)
+
+
+  
+NoMethodError (undefined method `password_digest' for #<User:0x00007faf1e155638>
+Did you mean?  password):
+  
+app/controllers/users_controller.rb:8:in `login'
+Started POST "/users/login" for 127.0.0.1 at 2020-03-16 22:04:33 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"maavimartinez@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "maavimartinez@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 8.0ms | Allocations: 9362)
+
+
+  
+NoMethodError (undefined method `password_digest' for #<User:0x00007fa617ba82f8>
+Did you mean?  password):
+  
+app/controllers/users_controller.rb:8:in `login'
+Started POST "/users" for 127.0.0.1 at 2020-03-16 22:10:16 -0300
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"maavimartinez2@gmail.com", "firstName"=>"Maria", "lastName"=>"Martinez", "password"=>"[FILTERED]", "phone"=>"099000000", "user"=>{"firstName"=>"Maria", "lastName"=>"Martinez", "email"=>"maavimartinez2@gmail.com", "password"=>"[FILTERED]", "phone"=>"099000000"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 273ms (ActiveRecord: 0.0ms | Allocations: 2778)
+
+
+  
+NoMethodError (undefined method `password_digest=' for #<User:0x00007fa619667a30>
+Did you mean?  password=):
+  
+app/controllers/users_controller.rb:39:in `create'
+Started POST "/cities" for 127.0.0.1 at 2020-03-16 22:25:23 -0300
+  [1m[35m (202.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CitiesController#create as */*
+  Parameters: {"name"=>"Montevideo", "city"=>{"name"=>"Montevideo"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (181.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authorize_request'
+  [1m[35m (198.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cities_controller.rb:30:in `block in create'
+  [1m[36mCity Create (231.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Montevideo"], ["created_at", "2020-03-17 01:25:30.789528"], ["updated_at", "2020-03-17 01:25:30.789528"]]
+  ↳ app/controllers/cities_controller.rb:30:in `block in create'
+  [1m[35m (175.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cities_controller.rb:30:in `block in create'
+Redirected to http://127.0.0.1:3000/cities/2
+Completed 302 Found in 1742ms (ActiveRecord: 2184.8ms | Allocations: 13931)
+
+
+Started GET "/cities/2" for 127.0.0.1 at 2020-03-16 22:25:31 -0300
+Processing by CitiesController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (189.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authorize_request'
+  [1m[36mCity Load (155.7ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:67:in `set_city'
+  Rendering cities/show.html.erb within layouts/application
+  Rendered cities/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 369)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/mariavictoriamartinez/Documents/SmartUp/coronaBack/public/packs
+[Webpacker] Hash: 32e57f147dbdcbbf0c82
+Version: webpack 4.42.0
+Time: 2130ms
+Built at: 03/16/2020 10:25:37 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-bbe9c4a129ab949e0636.js    124 KiB  application  [emitted] [immutable]  application
+js/application-bbe9c4a129ab949e0636.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-bbe9c4a129ab949e0636.js js/application-bbe9c4a129ab949e0636.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 5332ms (Views: 4653.1ms | ActiveRecord: 345.5ms | Allocations: 50358)
+
+
+Started POST "/towns" for 127.0.0.1 at 2020-03-16 22:26:47 -0300
+Processing by TownsController#create as */*
+  Parameters: {"name"=>"Carrasco", "city_id"=>0, "town"=>{"name"=>"Carrasco", "city_id"=>0}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 492.1ms | Allocations: 2479)
+
+
+  
+NameError (uninitialized constant JsonWebToken::ExceptionHandler):
+  
+app/lib/json_web_token.rb:17:in `rescue in decode'
+app/lib/json_web_token.rb:10:in `decode'
+app/controllers/application_controller.rb:12:in `authorize_request'
+Started POST "/towns" for 127.0.0.1 at 2020-03-16 22:27:11 -0300
+Processing by TownsController#create as */*
+  Parameters: {"name"=>"Carrasco", "city_id"=>0, "town"=>{"name"=>"Carrasco", "city_id"=>0}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (170.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authorize_request'
+[31mUnpermitted parameter: :city_id[0m
+  Rendering towns/new.html.erb within layouts/application
+  Rendered towns/_form.html.erb (Duration: 5.7ms | Allocations: 1459)
+  Rendered towns/new.html.erb within layouts/application (Duration: 7.3ms | Allocations: 1811)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 723ms (Views: 22.3ms | ActiveRecord: 637.9ms | Allocations: 21454)
+
+
+Started POST "/towns" for 127.0.0.1 at 2020-03-16 22:28:38 -0300
+  [1m[35m (267.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TownsController#create as */*
+  Parameters: {"name"=>"Carrasco", "city_id"=>0, "town"=>{"name"=>"Carrasco", "city_id"=>0}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (155.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authorize_request'
+  [1m[35m (352.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/towns_controller.rb:30:in `block in create'
+  [1m[36mCity Load (300.5ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/towns_controller.rb:30:in `block in create'
+  [1m[35m (157.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/towns_controller.rb:30:in `block in create'
+  Rendering towns/new.html.erb within layouts/application
+  Rendered towns/_form.html.erb (Duration: 6.8ms | Allocations: 1487)
+  Rendered towns/new.html.erb within layouts/application (Duration: 8.3ms | Allocations: 1963)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 2710ms (Views: 39.8ms | ActiveRecord: 2665.6ms | Allocations: 31931)
+
+
+Started POST "/towns" for 127.0.0.1 at 2020-03-16 22:29:42 -0300
+Processing by TownsController#create as */*
+  Parameters: {"name"=>"Carrasco", "city_id"=>1, "town"=>{"name"=>"Carrasco", "city_id"=>1}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (214.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authorize_request'
+  [1m[35m (407.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/towns_controller.rb:30:in `block in create'
+  [1m[36mCity Load (152.8ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/towns_controller.rb:30:in `block in create'
+  [1m[36mTown Create (194.5ms)[0m  [1m[32mINSERT INTO "towns" ("name", "city_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Carrasco"], ["city_id", 1], ["created_at", "2020-03-17 01:29:43.264273"], ["updated_at", "2020-03-17 01:29:43.264273"]]
+  ↳ app/controllers/towns_controller.rb:30:in `block in create'
+  [1m[35m (160.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/towns_controller.rb:30:in `block in create'
+Redirected to http://127.0.0.1:3000/towns/1
+Completed 302 Found in 1154ms (ActiveRecord: 1129.3ms | Allocations: 6629)
+
+
+Started GET "/towns/1" for 127.0.0.1 at 2020-03-16 22:29:43 -0300
+Processing by TownsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (197.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authorize_request'
+  [1m[36mTown Load (154.9ms)[0m  [1m[34mSELECT "towns".* FROM "towns" WHERE "towns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/towns_controller.rb:67:in `set_town'
+  Rendering towns/show.html.erb within layouts/application
+  Rendered towns/show.html.erb within layouts/application (Duration: 4.0ms | Allocations: 243)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 597ms (Views: 31.6ms | ActiveRecord: 352.9ms | Allocations: 6908)
+
+
+Started POST "/posts" for 127.0.0.1 at 2020-03-17 09:28:35 -0300
+  
+ActiveRecord::NoDatabaseError (could not connect to server: Operation timed out
+	Is the server running on host "coronadb.cw5wflqepngo.us-east-1.rds.amazonaws.com" (3.225.206.218) and accepting
+	TCP/IP connections on port 5432?
+):
+  
+activerecord (6.0.2.1) lib/active_record/connection_adapters/postgresql_adapter.rb:50:in `rescue in postgresql_connection'
+activerecord (6.0.2.1) lib/active_record/connection_adapters/postgresql_adapter.rb:33:in `postgresql_connection'
+activerecord (6.0.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:889:in `new_connection'
+activerecord (6.0.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:933:in `checkout_new_connection'
+activerecord (6.0.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:912:in `try_to_checkout_new_connection'
+activerecord (6.0.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:873:in `acquire_connection'
+activerecord (6.0.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:595:in `checkout'
+activerecord (6.0.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:439:in `connection'
+activerecord (6.0.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:1121:in `retrieve_connection'
+activerecord (6.0.2.1) lib/active_record/connection_handling.rb:238:in `retrieve_connection'
+activerecord (6.0.2.1) lib/active_record/connection_handling.rb:206:in `connection'
+activerecord (6.0.2.1) lib/active_record/migration.rb:562:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'

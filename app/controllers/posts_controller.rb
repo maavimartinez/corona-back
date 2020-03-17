@@ -4,12 +4,23 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    @ret = []
     @posts = Post.all
+    @posts.each do |p|
+      @town = Town.find(p.town_id)
+      @user = User.find(p.user_id)
+      @city = City.find(@town.city_id)
+      @ret.push(p.as_json.merge(user_id:@user.id, user_first_name: @user.first_name, user_last_name: @user.last_name, user_email:@user.email, town_id: @town.id, town_name: @town.name, city_id: @city.id, city_name: @city.name))
+    end
+
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @town = Town.find(@post.town_id)
+    @user = User.find(@post.user_id)
+    @city = City.find(@town.city_id)
   end
 
   # GET /posts/new
@@ -24,15 +35,23 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
+    puts "entre create post"
+    @previous_post = Post.where(user_id: @current_user.id).first
+    puts "pase previuos"
+    puts @previous_post.as_json
+    if @previous_post != nil
+      puts "error"
+      render :json => {:error => "No peudes realizar otro pedido"}.to_json, :status => 422
+      #format.json { render json: "No puedes realizar otro pedido", status: :unprocessable_entity }
+    else
+      @post = Post.create!(description: params[:description],title: params[:title], town_id: params[:town_id], user_id: @current_user.id)
 
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @post.save
+          format.json { render :create, status: :created, location: @post }
+        else
+          format.json { render json: @post.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -69,6 +88,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:dateTime, :description)
+      params.require(:post).permit(:description, :town_id, :title)
     end
 end

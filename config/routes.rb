@@ -5,11 +5,14 @@ Rails.application.routes.draw do
   patch  '/users/:id',    to: 'users#update'
   delete '/users/:id',    to: 'users#destroy'
   post   '/users/login',  to: 'users#login'
+  get    '/news',         to: 'news#index'
+  get    '/news/:id',     to: 'news#show'
+  post   '/news',         to: 'news#create'
+  patch  '/news',         to: 'news#update'
   resources :offers
   resources :reviews
   resources :products
   resources :shops
-  resources :news
   resources :towns
   resources :cities
   resources :posts

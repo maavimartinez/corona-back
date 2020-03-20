@@ -5,3 +5,4 @@ json.user do
     json.email @user.email
     json.phone @user.phone
 end
+json.status_code 200

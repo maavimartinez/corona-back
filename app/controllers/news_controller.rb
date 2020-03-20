@@ -4,7 +4,7 @@ class NewsController < ApplicationController
   # GET /news
   # GET /news.json
   def index
-    @news = News.all
+    @ret = News.all
   end
 
   # GET /news/1
@@ -24,14 +24,11 @@ class NewsController < ApplicationController
   # POST /news
   # POST /news.json
   def create
-    @news = News.new(news_params)
-
+    @news = News.create!(title: params[:title], body: params[:body], date_time: params[:date_time], source: params[:source])
     respond_to do |format|
       if @news.save
-        format.html { redirect_to @news, notice: 'News was successfully created.' }
         format.json { render :show, status: :created, location: @news }
       else
-        format.html { render :new }
         format.json { render json: @news.errors, status: :unprocessable_entity }
       end
     end
@@ -69,6 +66,6 @@ class NewsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def news_params
-      params.require(:news).permit(:title, :body, :date_time)
+      params.require(:news).permit(:title, :body, :date_time, :source)
     end
 end

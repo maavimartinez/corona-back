@@ -4,7 +4,8 @@ class CitiesController < ApplicationController
   # GET /cities
   # GET /cities.json
   def index
-    @cities = City.all
+    @cities = City.all.preload(:towns).as_json(include: :towns)
+    render json: @cities, status: 200
   end
 
   # GET /cities/1

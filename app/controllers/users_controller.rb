@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def login
-    puts "login entre"
     @user = User.where(email: params[:email].to_s.downcase).first()
     if @user && @user.authenticate(params[:password].to_s) 
         auth_token = JsonWebToken.encode({user_id: @user.id})
